@@ -23,7 +23,10 @@ feature "hidden links" do
   end
 
   context "regular users" do
-    before { sign_in_as!(user) }
+    before do
+      sign_in_as!(user)
+      define_permission!(user, 'view', project)
+    end
 
     scenario "cannot see the New Project link" do
       visit '/'
@@ -42,7 +45,11 @@ feature "hidden links" do
   end
 
   context "admin users" do 
-    before { sign_in_as!(admin) }
+    before do 
+      sign_in_as!(admin)
+      define_permission!(admin, "view", project)
+    end
+
     scenario "can see the New Project link" do 
       visit '/'
       assert_link_for "New Project"
