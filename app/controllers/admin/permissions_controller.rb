@@ -8,7 +8,8 @@ class Admin::PermissionsController < Admin::BaseController
 
   def set
     @user.permissions.clear
-    params[:permissions].each do |id, permissions|
+    if params[:permissions]
+      params[:permissions].each do |id, permissions|
       project = Project.find(id)
       permissions.each do |permission, checked|
         Permission.create!(user: @user,
@@ -18,7 +19,12 @@ class Admin::PermissionsController < Admin::BaseController
     end
     flash[:notice] = "Permissions updated."
     redirect_to admin_user_permissions_path(@user)
+  else
+    flash[:alert] = "You denied all permission."
+    redirect_to admin_user_permissions_path(@user)
   end
+end
+  
 
   private
     def set_user
