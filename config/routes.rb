@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :projects do 
     resources :tickets
   end
-
+  resources :files
   resources :users
 
   delete "/signout", to: "sessions#destroy", as: "signout"
