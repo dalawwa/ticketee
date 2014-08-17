@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :projects do 
     resources :tickets
   end
+
+  resources :tickets do 
+    resources :comments
+  end
   resources :files
   resources :users
 

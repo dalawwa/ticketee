@@ -14,7 +14,7 @@ before_action :authorize_delete!, only: [:destroy]
 	end
 
 	def show
-
+    @comment = @ticket.comments.build
 	end
 
 	def create
