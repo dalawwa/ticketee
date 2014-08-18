@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  private
+private
 
     def require_signin!
     	if current_user.nil?
@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
     def authorize_admin!
       require_signin!
 
-    unless current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
-      redirect_to root_path
+      unless current_user.admin?
+        flash[:alert] = "You must be an admin to do that."
+        redirect_to root_path
+      end
     end
-  end
 end

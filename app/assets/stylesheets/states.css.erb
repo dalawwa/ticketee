@@ -1,0 +1,7 @@
+<% State.all.each do |state| %>
+  .state_<%= state.name.parameterize %> {
+      background: <%= state.background %>;
+      color: <%= state.color %>;
+  }
+
+  <% end %>
