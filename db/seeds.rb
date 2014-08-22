@@ -20,7 +20,8 @@ State.create(name: "Open",
 
 State.create(name: "New",
              background: "#85FF00",
-             color: "white")
+             color: "white",
+             default: true)
 
 State.create(name: "Closed",
              background: "black",
