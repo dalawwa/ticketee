@@ -26,7 +26,7 @@ before_action :authorize_delete!, only: [:destroy]
 			redirect_to [@project, @ticket]
 		else
 			flash[:alert] = "Ticket has not been created."
-			render "new"
+			render action: "new"
 		end
 	end
 

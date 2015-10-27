@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140822110816) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "asset"
     t.integer  "state_id"
   end
 
